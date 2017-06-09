@@ -2,27 +2,48 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
-## Development server
+##MongoDB
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para importar los datasets ejecutar los siguientes comandos, en el orden mencionado:
+```bash 
+$ mongoimport --db mundialF5 --collection nationalTeam --drop --file YOUR_ROUTE_PROJECT/datasets/national-teams-dataset.json
+$ mongoimport --db mundialF5 --collection player --drop --file YOUR_ROUTE_PROJECT/datasets/players-dataset.json
+```
 
-## Code scaffolding
+## API REST
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+* Para el server de la API REST utilizar los siguiente comandos:
+```bash 
+$ cd YOUR_ROUTE_PROJECT/api
+$ npm start
+```
 
-## Build
+Finalmente realizar peticiones a `http://localhost:3977/` utilizando la siguiente API:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+###Selecciones
 
-## Running unit tests
+Metodo | URL | Descripcion
+-------|-----|------------
+GET | /getNationalTeams/:confederation? | Devuelve las selecciones pertenecientes al parametro confederation, si el mismo no es pasado devuelve todas las selecciones.
+GET | /getNationalTeam/:id | Devuelve la seleccion especificada en el parametro id.
+POST | /saveNationalTeam | Almacena una seleccion.
+DELETE | /deleteNationalTeam/:id | Borra la seleccion con el id especificado. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###Jugadores
 
-## Running end-to-end tests
+Metodo | URL | Descripcion
+-------|-----|------------
+GET | /getPlayer/:id | Devuelve el jugador con el id especificado.
+POST | /savePlayer | Almacena un jugador en la base de datos.
+PUT | /updatePlayer/:id | Modifica el jugador con el id especificado.
+DELETE | /deletePlayer/:id | Elimina el jugador con el id especificado. 
+GET | /getPlayers/:nationalTeamId? | Devuelve los jugadores de una seleccion con el id especificada, y en caso de no proporcionarla devuelve todos los jugadores.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Angular2
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Para el server de Angular2 utilizar los siguiente comandos:
+```bash 
+$ cd YOUR_ROUTE_PROJECT/client
+$ ng serve
+```
+Finalmente navegar a `http://localhost:4200/`.
