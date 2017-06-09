@@ -5,6 +5,7 @@ function saveNationalTeam(req,res){
   let nationalTeam = new NationalTeam();
 
   let params = req.body;
+  nationalTeam._id = params._id;
   nationalTeam.name = params.name.toLowerCase();
   nationalTeam.confederation = params.confederation.toLowerCase();
 
