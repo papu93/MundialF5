@@ -6,7 +6,8 @@
 /out-tsc
 
 # dependencies
-/node_modules
+/api/node_modules
+/client/node_modules
 
 # IDEs and editors
 /.idea
@@ -32,6 +33,11 @@
 npm-debug.log
 testem.log
 /typings
+
+# e2e
+/client/e2e/*.js
+/client/e2e/*.map
+
 
 # System Files
 .DS_Store

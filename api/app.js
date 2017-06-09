@@ -5,8 +5,8 @@ var app = express();
 
 //cargar RUTAS
 //aca lo dirijimos dentro de la carpeta src
-var player_routes = require('./src/app/routes/player');
-var national_team_routes = require('./src/app/routes/nationalTeam');
+var player_routes = require('./routes/player');
+var national_team_routes = require('./routes/nationalTeam');
 
 
 app.use(bodyParser.urlencoded({extended:false})); //Necesario para q bodyParser ande
