@@ -1,8 +1,8 @@
 # MundialF5
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+Una aplicacion web que contiene selecciones y 5 jugadores por cada una de ellas. Da la posibilidad de realizar operaciones CRUD sobre ambos esquemas.
 
-##MongoDB
+## MongoDB
 
 Para importar los datasets ejecutar los siguientes comandos, en el orden mencionado:
 ```bash 
@@ -20,7 +20,7 @@ $ npm start
 
 Finalmente realizar peticiones a `http://localhost:3977/` utilizando la siguiente API:
 
-###Selecciones
+### Selecciones
 
 Metodo | URL | Descripcion
 -------|-----|------------
@@ -29,7 +29,7 @@ GET | /getNationalTeam/:id | Devuelve la seleccion especificada en el parametro 
 POST | /saveNationalTeam | Almacena una seleccion.
 DELETE | /deleteNationalTeam/:id | Borra la seleccion con el id especificado. 
 
-###Jugadores
+### Jugadores
 
 Metodo | URL | Descripcion
 -------|-----|------------
