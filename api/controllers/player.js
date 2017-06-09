@@ -25,7 +25,10 @@ function savePlayer(req,res){
 
   let params = req.body;
   player.name = params.name;
+  player.bio = params.bio;
   player.position = params.position;
+  player.caps = params.caps;
+  player.goalsForCountry = params.goalsForCountry;
   player.club = params.club;
   player.league = params.league;
   player.dateOfBirth = params.dateOfBirth;
@@ -86,17 +89,17 @@ function getPlayers(req, res) {
   }else{ 	//Sacar las selecciones de esa confederacion
     find = playerModel.find({nationalTeam: nationalTeamId}).sort('name');
   }
-    find.populate({path: 'nationalTeam'}).exec(function(err,players){
-      if(err){
-        res.status(500).send({message: 'Error al buscar los jugadores'+'\n'+err});
+  find.populate({path: 'nationalTeam'}).exec(function(err,players){
+    if(err){
+      res.status(500).send({message: 'Error al buscar los jugadores'+'\n'+err});
+    }else{
+      if(!players){
+        res.status(404).send({message: 'No hay jugadores'});
       }else{
-        if(!players){
-          res.status(404).send({message: 'No hay jugadores'});
-        }else{
-          res.status(200).send({players});
-        }
+        res.status(200).send({players});
       }
-    });
+    }
+  });
 }
 
 module.exports = {

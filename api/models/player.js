@@ -7,7 +7,7 @@ var playerSchema = new schema({ //asd
   club: String,
   league: String,
   dateOfBirth: String,
-  nationalTeam: {type: schema.ObjectId, ref: 'nationalTeam'}
+  nationalTeam: {type: Number, ref: 'nationalTeam'}
 }, { collection: 'player' });
 
 module.exports = mongoose.model('Player', playerSchema);

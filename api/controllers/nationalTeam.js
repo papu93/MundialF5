@@ -42,6 +42,22 @@ function getNationalTeams(req,res) {
   });
 }
 
+function getNationalTeam(req , res) {
+  let id = req.params.id;
+  let findOne = NationalTeam.findOne({_id: id});
+  findOne.exec(function(err,nationalTeam) {
+    if (err) {
+      res.status(500).send({message: 'Error al buscar la seleccion'});
+    } else {
+      if (!nationalTeam) {
+        res.status(404).send({message: 'No hay selecciones'});
+      } else {
+        res.status(200).send({nationalTeam});
+      }
+    }
+  });
+}
+
 function deleteNationalTeam(req , res) {
   let nationalTeamId = req.params.id;
 
@@ -61,5 +77,6 @@ function deleteNationalTeam(req , res) {
 module.exports = {
   getNationalTeams,
   saveNationalTeam,
-  deleteNationalTeam
+  deleteNationalTeam,
+  getNationalTeam
 }
