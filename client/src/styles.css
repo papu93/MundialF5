@@ -9,3 +9,20 @@ body{
 .app-card{
   margin: 0 15px 15px 0;
 }
+
+.row-component{
+  margin-right: 20px;
+}
+
+.inline-component {
+  display:inline-block;
+}
+
+.img-size{
+  width: 200px;
+  height: 200px;
+}
+
+.margin {
+  margin-right:50px;
+}
