@@ -1,15 +1,32 @@
 <div class="container">
 
-  <div class="row">
-    <div class="jumbotron col-md-3">
-    <ul>
-      <li>{{nationalTeam.name}}</li>
-      <li>{{nationalTeam.confederation}}</li>
-    </ul>
+  <h1>Detalle</h1>
+
+  <div class="row" *ngIf="nationalTeam != null">
+    <div class="jumbotron col-md-5 row-component margin">
+      <div class="inline-component">
+      <p>Nombre: {{nationalTeam.name}}</p>
+      <p>Confederacion: {{nationalTeam.confederation}}</p>
+      </div>
     </div>
-    <div class="jumbotron col-md-9">
-      Players
+    <div class="jumbotron col-md-6 inline-component">
+      <img class="img-size" src="http://4.bp.blogspot.com/-tSw1ScsOvdI/Up5cWqOLirI/AAAAAAAACLc/c7kpNkpimHg/s1600/EscudoAFA2.png">
     </div>
+  </div>
+  <div class="row" *ngIf="nationalTeam != null">
+    <div class="jumbotron col-md-12">
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="nationalTeam == null">
+    <strong>Lo sentimos mucho ha ocurrido un error.</strong>
   </div>
 
 </div>
