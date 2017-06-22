@@ -15,6 +15,7 @@ $ mongoimport --db mundialF5 --collection player --drop --file YOUR_ROUTE_PROJEC
 * Para el server de la API REST utilizar los siguiente comandos:
 ```bash 
 $ cd YOUR_ROUTE_PROJECT/api
+$ npm install
 $ npm start
 ```
 
@@ -44,6 +45,7 @@ GET | /getPlayers/:nationalTeamId? | Devuelve los jugadores de una seleccion con
 * Para el server de Angular2 utilizar los siguiente comandos:
 ```bash 
 $ cd YOUR_ROUTE_PROJECT/client
+$ npm install
 $ ng serve
 ```
 Finalmente navegar a `http://localhost:4200/`.
