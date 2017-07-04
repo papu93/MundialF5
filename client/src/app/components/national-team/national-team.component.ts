@@ -26,16 +26,16 @@ export class NationalTeamComponent implements OnInit {
 
   ngOnInit() {
     this.getNationalTeamInfo();
-    this.getPlayers();
   }
 
   getNationalTeamInfo(){
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(+params['id']))
-      .subscribe(nationalTeam => {
-        this.nationalTeam._id = nationalTeam._id;
-        this.nationalTeam.name = nationalTeam.name;
-        this.nationalTeam.confederation = nationalTeam.confederation;
+      .subscribe(response => {
+        this.nationalTeam._id = response._id;
+        this.nationalTeam.name = response.name;
+        this.nationalTeam.confederation = response.confederation;
+        this.getPlayers();
       });
   }
 
