@@ -19,9 +19,6 @@ export class PlayersService {
     }
     const url = this.apiURL + query;
     return this.httpModule.get( url )
-      .map( res => {
-        console.log(res.json().players);
-      });
+      .map( res => res.json());
   }
-
 }
