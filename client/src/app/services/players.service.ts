@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { GLOBAL } from './global';
+
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PlayersService {
-
   players: any[]= [];
-  apiURL = 'http://localhost:3977/api';
+  apiURL: string;
 
-  constructor( private httpModule: Http ) { }
+  constructor( private httpModule: Http ) {
+    this.apiURL = GLOBAL.url;
+  }
 
   getPlayers(nationalTeamId: number) {
     let query;
@@ -19,6 +22,6 @@ export class PlayersService {
     }
     const url = this.apiURL + query;
     return this.httpModule.get( url )
-      .map( res => res.json());
+      .map( res => this.players = res.json());
   }
 }
