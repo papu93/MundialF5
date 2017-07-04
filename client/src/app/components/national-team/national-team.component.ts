@@ -25,6 +25,11 @@ export class NationalTeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getNationalTeamInfo();
+    this.getPlayers();
+  }
+
+  getNationalTeamInfo(){
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(+params['id']))
       .subscribe(nationalTeam => {
@@ -32,13 +37,27 @@ export class NationalTeamComponent implements OnInit {
         this.nationalTeam.name = nationalTeam.name;
         this.nationalTeam.confederation = nationalTeam.confederation;
       });
+  }
 
+  getPlayers(){
     this.activatedRoute.params
       .switchMap((params: Params) => this.playersService.getPlayers(this.nationalTeam._id))
-      .subscribe(players => {
-        console.log(players);
-      });
+      .subscribe(
+        response => {
+          if(!response.players){
+            console.log("No hay jugadores para cargar");
+          }else{
+            this.players = response.players;
+          }
+        },
+        error => {
+          var errorMessage = <any>error;
+          if(errorMessage != null){
+            console.log(JSON.parse(error._body));
+          }
+        });
   }
+
   storePlayers(res: any[]) {
     for (let player of res) {
       this.p.name = player.name;
