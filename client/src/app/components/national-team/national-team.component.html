@@ -19,10 +19,10 @@
       <div class="card col-lg-3 player-card" *ngFor="let player of players">
         <div class="card-block">
           <h4 class="card-title">{{player.name}}</h4>
-          <p class="card-text">{{player.position}}</p>
-          <p class="card-text">{{player.club}}</p>
-          <p class="card-text">{{player.league}}</p>
-          <p class="card-text">{{player.dateOfBirth}}</p>
+          <p class="card-text">Posicion: {{player.position}}</p>
+          <p class="card-text">Club: {{player.club}}</p>
+          <p class="card-text">Liga: {{player.league}}</p>
+          <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
           <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
         </div>
       </div>
