@@ -1,3 +1,22 @@
-<p>
-  players works!
-</p>
+<h1>Jugadores: </h1>
+
+<div class="jumbotron">
+  <div class="row" *ngIf="players != null">
+    <div class="card col-lg-3 player-card" *ngFor="let player of players">
+      <div class="card-block">
+        <span class="card-title">{{player.name}}</span>
+        <div class="container detail-container">
+          <p class="card-text">Posicion: {{player.position}}</p>
+          <p class="card-text">Club: {{player.club}}</p>
+          <p class="card-text">Liga: {{player.league}}</p>
+          <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
+          <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="players == null">
+  <strong>Lo sentimos mucho ha ocurrido un error.</strong>
+</div>
