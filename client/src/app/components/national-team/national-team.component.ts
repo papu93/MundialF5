@@ -29,7 +29,7 @@ export class NationalTeamComponent implements OnInit {
     this.getPlayers();
   }
 
-  getNationalTeamInfo(){
+  getNationalTeamInfo() {
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(+params['id']))
       .subscribe(response => {
@@ -39,28 +39,28 @@ export class NationalTeamComponent implements OnInit {
       });
   }
 
-  getPlayers(){
+  getPlayers() {
     this.activatedRoute.params
       .switchMap((params: Params) => this.playersService.getPlayers(+params['id']))
       .subscribe(
         response => {
-          if(!response.players){
-            console.log("No hay jugadores para cargar");
-          }else{
+          if (!response.players) {
+            console.log('No hay jugadores para cargar');
+          } else {
             this.players = response.players;
             console.log(this.players);
           }
         },
         error => {
-          var errorMessage = <any>error;
-          if(errorMessage != null){
+          const errorMessage = <any>error;
+          if (errorMessage != null) {
             console.log(JSON.parse(error._body));
           }
         });
   }
 
   storePlayers(res: any[]) {
-    for (let player of res) {
+    for (const player of res) {
       this.p.name = player.name;
       this.p.position = player.position;
       this.p.club = player.club;
@@ -69,5 +69,9 @@ export class NationalTeamComponent implements OnInit {
       this.p.nationalTeam = player.nationalTeam;
       this.players.push(this.p);
     }
+  }
+
+  showPlayerDetail() {
+
   }
 }
