@@ -3,23 +3,27 @@
   <h1>Detalle</h1>
 
   <div class="row" *ngIf="nationalTeam != null">
-    <div class="jumbotron col-md-5 row-component margin">
+    <div class="jumbotron col-lg-5 row-component margin">
       <div class="inline-component">
       <p>Nombre: {{nationalTeam.name}}</p>
       <p>Confederacion: {{nationalTeam.confederation}}</p>
       </div>
     </div>
-    <div class="jumbotron col-md-6 inline-component">
+    <div class="jumbotron col-lg-6 inline-component">
       <img class="img-size" src="http://4.bp.blogspot.com/-tSw1ScsOvdI/Up5cWqOLirI/AAAAAAAACLc/c7kpNkpimHg/s1600/EscudoAFA2.png">
     </div>
-  </div>
-  <div class="row" *ngIf="nationalTeam != null">
-    <div class="jumbotron col-md-12">
-      <div class="card" style="width: 20rem;">
+      </div>
+
+  <div class="jumbotron col-lg-12">
+    <div class="row" *ngIf="nationalTeam != null">
+      <div class="card col-lg-3 player-card" *ngFor="let player of players">
         <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">{{player.name}}</h4>
+          <p class="card-text">{{player.position}}</p>
+          <p class="card-text">{{player.club}}</p>
+          <p class="card-text">{{player.league}}</p>
+          <p class="card-text">{{player.dateOfBirth}}</p>
+          <button (click)="" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
         </div>
       </div>
     </div>
