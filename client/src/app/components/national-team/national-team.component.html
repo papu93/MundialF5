@@ -10,22 +10,27 @@
       </div>
     </div>
     <div class="jumbotron col-lg-6 inline-component">
-      <img class="img-size" src="http://4.bp.blogspot.com/-tSw1ScsOvdI/Up5cWqOLirI/AAAAAAAACLc/c7kpNkpimHg/s1600/EscudoAFA2.png">
+      <div class="container img-container">
+        <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">
+      </div>
     </div>
   </div>
-  <div class="jumbotron ">
-    <div class="row" *ngIf="nationalTeam != null">
-      <div class="card col-lg-3 player-card" *ngFor="let player of players">
-        <div class="card-block">
-          <span class="card-title">{{player.name}}</span>
-          <div class="container detail-container">
-            <p class="card-text">Posicion: {{player.position}}</p>
-            <p class="card-text">Club: {{player.club}}</p>
-            <p class="card-text">Liga: {{player.league}}</p>
-            <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
-          </div>
-          <div class="container container-detail">
-            <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
+
+  <div class="jumbotron jumbotron-padding">
+    <div class="container-fluid container-cards">
+      <div class="row" *ngIf="players != null">
+        <div class="card col-lg-4" *ngFor="let player of players">
+          <div class="card-block player-card">
+            <span class="card-title">{{player.name}}</span>
+            <div class="container detail-container">
+              <p class="card-text">Posicion: {{player.position}}</p>
+              <p class="card-text">Club: {{player.club}}</p>
+              <p class="card-text">Liga: {{player.league}}</p>
+              <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
+            </div>
+            <div class="container container-detail">
+              <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
+            </div>
           </div>
         </div>
       </div>
