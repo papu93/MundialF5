@@ -8,6 +8,7 @@ function saveNationalTeam(req,res){
   nationalTeam._id = params._id;
   nationalTeam.name = params.name.toLowerCase();
   nationalTeam.confederation = params.confederation.toLowerCase();
+  nationalTeam.image = params.image;
 
   nationalTeam.save(function(err,nationalTeam){
     if(err){
