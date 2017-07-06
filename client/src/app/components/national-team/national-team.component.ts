@@ -36,6 +36,7 @@ export class NationalTeamComponent implements OnInit {
         this.nationalTeam._id = response._id;
         this.nationalTeam.name = response.name;
         this.nationalTeam.confederation = response.confederation;
+        this.nationalTeam.image = response.image;
       });
   }
 
