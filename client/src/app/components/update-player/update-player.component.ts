@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { PlayersService } from '../../services/players.service';
 import { Player } from '../../classes/player.class';
@@ -11,6 +11,7 @@ import { Player } from '../../classes/player.class';
 
 export class UpdatePlayerComponent implements OnInit {
   public titulo: string;
+  @Input()
   public player: Player = new Player();
   public alertMessage;
 
@@ -28,7 +29,7 @@ export class UpdatePlayerComponent implements OnInit {
 
   getPlayer() {
     this.activatedRoute.params
-      .switchMap((params: Params) => this.playersService.getPlayers(+params['id']))
+      .switchMap((params: Params) => this.playersService.getPlayer(params))
       .subscribe(response => {
         this.player.name = response.name;
         this.player.position = response.position;

@@ -16,13 +16,23 @@ export class PlayersService {
   getPlayers(nationalTeamId: number) {
     let query;
     if (nationalTeamId == null) {
-      query = `/getPlayers/`;
+      query = `getPlayers/`;
     } else {
-      query = `/getPlayers/` + nationalTeamId;
+      query = `getPlayers/` + nationalTeamId;
     }
     const url = this.apiURL + query;
     return this.httpModule.get( url )
       .map( res => this.players = res.json());
+  }
+
+  getPlayer(maiame:any) {
+    console.log(maiame);
+    let query : string;
+    query = `getPlayer/` +  maiame["id"];
+    const url = this.apiURL + query;
+    console.log(url);
+    return this.httpModule.get( url )
+      .map( res => res.json());
   }
 
   updatePlayer(player_to_update) {
