@@ -18,6 +18,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NationalTeamsComponent } from './components/national-teams/national-teams.component';
 import { PlayersComponent } from './components/players/players.component';
 import { NationalTeamComponent } from './components/national-team/national-team.component';
+import { WithoutPhotoPipe } from './pipes/without-photo.pipe';
+import { UpdatePlayerComponent } from './components/update-player/update-player.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NationalTeamComponent } from './components/national-team/national-team.
     HomeComponent,
     NationalTeamsComponent,
     PlayersComponent,
-    NationalTeamComponent
+    NationalTeamComponent,
+    UpdatePlayerComponent,
+    WithoutPhotoPipe
   ],
   imports: [
     BrowserModule,
