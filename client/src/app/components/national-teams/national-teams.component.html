@@ -3,12 +3,13 @@
   <div class="card-columns row">
 
     <div class="card col-md-3 app-card" *ngFor="let nationalTeam of nationalTeamsService.nationalTeams;">
-      <!--<img class="card-img-top img-fluid" [src]="" [alt]="">-->
-      <div class="card-block">
-        <h4 class="card-title">{{nationalTeam.name}}</h4>
-        <p class="card-text">Confederation: {{nationalTeam.confederation}}</p>
-        <button (click)="showNationalTeam(nationalTeam._id)" type="button" class="btn btn-outline-primary btn-block" >Ver Seleccion</button>
+      <div class="container img-container">
+        <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">
       </div>
+      <div class="card-block">
+      <h4 class="card-title">{{nationalTeam.name}}</h4>
+      <button (click)="showNationalTeam(nationalTeam._id)" type="button" class="btn btn-outline-primary btn-block" >Ver Seleccion</button>
+    </div>
     </div>
 
   </div>
