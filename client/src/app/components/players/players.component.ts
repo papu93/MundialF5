@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 import { PlayersService } from '../../services/players.service';
-import {Player} from '../../classes/player.class';
+import { Player} from '../../classes/player.class';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -41,5 +41,9 @@ export class PlayersComponent implements OnInit {
             console.log(JSON.parse(error._body));
           }
         });
+  }
+
+  updatePlayer(id: number) {
+    this.router.navigate(['/updatePlayer', id]);
   }
 }
