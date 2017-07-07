@@ -35,7 +35,7 @@ export class UpdatePlayerComponent implements OnInit {
         this.player.position = response.player.position;
         this.player.club = response.player.club;
         this.player.league = response.player.league;
-        this.player.dateOfBirth = response.player["date of birth"];
+        this.player.dateOfBirth = response.player.dateOfBirth;
         this.player.nationalTeam = response.player.nationalTeam;
       });
   }
