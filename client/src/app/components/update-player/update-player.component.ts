@@ -41,8 +41,6 @@ export class UpdatePlayerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.player);
-
     this.playersService.updatePlayer(this.player).subscribe(
       response => {
         if (!response.player) {

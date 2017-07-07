@@ -25,12 +25,10 @@ export class PlayersService {
       .map( res => this.players = res.json());
   }
 
-  getPlayer(maiame:any) {
-    console.log(maiame);
+  getPlayer(params:any) {
     let query : string;
-    query = `getPlayer/` +  maiame["id"];
+    query = `getPlayer/` +  params["id"];
     const url = this.apiURL + query;
-    console.log(url);
     return this.httpModule.get( url )
       .map( res => res.json());
   }
