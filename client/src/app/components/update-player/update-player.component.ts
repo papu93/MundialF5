@@ -51,6 +51,8 @@ export class UpdatePlayerComponent implements OnInit {
           this.player = response.player; //actualizamos jugador
           this.alertMessage = 'Datos actualizados correctamente';
         }
+
+        this.router.navigate(['/players']);
       },
       error => {
         var errorMessage = <any>error;
