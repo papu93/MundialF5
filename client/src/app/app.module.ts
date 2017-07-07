@@ -20,6 +20,7 @@ import { PlayersComponent } from './components/players/players.component';
 import { NationalTeamComponent } from './components/national-team/national-team.component';
 import { WithoutPhotoPipe } from './pipes/without-photo.pipe';
 import { UpdatePlayerComponent } from './components/update-player/update-player.component';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UpdatePlayerComponent } from './components/update-player/update-player.
     PlayersComponent,
     NationalTeamComponent,
     UpdatePlayerComponent,
-    WithoutPhotoPipe
+    WithoutPhotoPipe,
+    AddPlayerComponent
   ],
   imports: [
     BrowserModule,
