@@ -36,7 +36,6 @@ export class PlayersService {
   }
 
   updatePlayer(player_to_update) {
-    console.log(player_to_update);
     let params = JSON.stringify(player_to_update); //convertimos a string
     let headers = new Headers({'Content-Type': 'application/json'});
     return this.httpModule.put(this.apiURL + 'updatePlayer/' + player_to_update._id, params, {headers: headers})
