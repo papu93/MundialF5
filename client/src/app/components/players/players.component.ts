@@ -46,4 +46,8 @@ export class PlayersComponent implements OnInit {
   updatePlayer(id: number) {
     this.router.navigate(['/updatePlayer', id]);
   }
+
+  addPlayer(){
+    this.router.navigate(['/savePlayer']);
+  }
 }
