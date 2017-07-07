@@ -18,13 +18,28 @@ export class AddPlayerComponent implements OnInit {
               private playersService: PlayersService) { }
 
   ngOnInit() {
-    this.titulo = 'Ingresar Jugador';
+    this.titulo = 'Registrar Jugador';
     console.log('Add-player cargado');
   }
 
   onSubmit() {
-    console.log("AGREGAR");
-    //Hacer opciones al formulario
-    console.log(this.player);
+    this.playersService.registerPlayer(this.player).subscribe(
+      response => {
+        if (!response.player) {
+          this.alertMessage = 'El jugador no se ha podido registrar';
+        } else {
+          this.alertMessage = 'Jugador registrado correctamente';
+        }
+
+        this.router.navigate(['/players']);
+      },
+      error => {
+        var errorMessage = <any>error;
+        if (errorMessage != null) {
+          var body = JSON.parse(error._body);
+          this.alertMessage = body.message;
+          console.log(error);
+        }
+      });
   }
 }

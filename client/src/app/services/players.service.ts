@@ -41,4 +41,12 @@ export class PlayersService {
     return this.httpModule.put(this.apiURL + 'updatePlayer/' + player_to_update._id, params, {headers: headers})
       .map(res => res.json());
   }
+
+  registerPlayer(player_to_register){
+    let params = JSON.stringify(player_to_register); //convertimos a string
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.httpModule.post(this.apiURL + 'savePlayer/', params, { headers: headers })
+      .map(res => res.json());
+  }
 }
