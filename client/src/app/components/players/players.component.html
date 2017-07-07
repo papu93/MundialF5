@@ -18,7 +18,7 @@
             <p class="card-text">Posicion: {{player.position}}</p>
             <p class="card-text">Club: {{player.club}}</p>
             <p class="card-text">Liga: {{player.league}}</p>
-            <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
+            <p class="card-text">Fecha de nacimiento: {{player["date of birth"]}}</p>
           </div>
           <div class="container container-detail">
             <button (click)="updatePlayer(player._id)" type="button" class="btn btn-outline-primary btn-block" >Modificar</button>
