@@ -30,6 +30,7 @@ export class UpdatePlayerComponent implements OnInit {
     this.activatedRoute.params
       .switchMap((params: Params) => this.playersService.getPlayer(params))
       .subscribe(response => {
+        this.player._id = response.player._id;
         this.player.name = response.player.name;
         this.player.position = response.player.position;
         this.player.club = response.player.club;
