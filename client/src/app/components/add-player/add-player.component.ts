@@ -23,5 +23,8 @@ export class AddPlayerComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("AGREGAR");
+    //Hacer opciones al formulario
+    console.log(this.player);
   }
 }
