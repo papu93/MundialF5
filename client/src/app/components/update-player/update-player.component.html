@@ -5,45 +5,45 @@
       {{alertMessage}}
     </div>
   </div>
-  <form #PlayerUpdateForm="ngForm" (ngSubmit)="onSubmit()" ngNativeValidate class="col-md-10">
+  <form #PlayerUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
     <p>
       <label>Nombre:</label>
       <input type="text" #name="ngModel" name="name" [(ngModel)]="player.name" class="form-control" required />
       <span *ngIf="!name.valid && name.touched">
-				El nombre es obligatorio
-			</span>
+        El nombre es obligatorio
+      </span>
     </p>
 
     <p>
       <label>Posicion:</label>
       <input type="text"  #position="ngModel" name="position" [(ngModel)]="player.position" class="form-control" required />
       <span *ngIf="!position.valid && position.touched">
-				La posicion es obligatoria
-			</span>
+        La posicion es obligatoria
+      </span>
     </p>
 
     <p>
       <label>Club:</label>
-      <input type="club" #club="ngModel" name="club" [(ngModel)]="player.club" class="form-control" required />
+      <input type="text" #club="ngModel" name="club" [(ngModel)]="player.club" class="form-control" required />
       <span *ngIf="!club.valid && club.touched">
-				El club es obligatorio
-			</span>
+        El club es obligatorio
+      </span>
     </p>
 
     <p>
       <label>Liga:</label>
-      <input type="league" #league="ngModel" name="league" [(ngModel)]="player.league" class="form-control" required />
+      <input type="text" #league="ngModel" name="league" [(ngModel)]="player.league" class="form-control" required />
       <span *ngIf="!league.valid && league.touched">
-				La liga es obligatoria
-			</span>
+        La liga es obligatoria
+      </span>
     </p>
 
     <p>
     <label>Fecha de nacimiento:</label>
-    <input type="dateOfBirth" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />
+    <input type="text" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />
     <span *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
-				La fecha de nacimiento es obligatoria
-			</span>
+        La fecha de nacimiento es obligatoria
+      </span>
     </p>
 
     <input type="submit" value="Actualizar datos" class="btn btn-primary" />

@@ -11,8 +11,7 @@ import { Player } from '../../classes/player.class';
 
 export class UpdatePlayerComponent implements OnInit {
   public titulo: string;
-  @Input()
-  public player: Player = new Player();
+  public player: Player = new Player;
   public alertMessage;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -31,12 +30,12 @@ export class UpdatePlayerComponent implements OnInit {
     this.activatedRoute.params
       .switchMap((params: Params) => this.playersService.getPlayer(params))
       .subscribe(response => {
-        this.player.name = response.name;
-        this.player.position = response.position;
-        this.player.club = response.club;
-        this.player.league = response.league;
-        this.player.dateOfBirth = response.dateOfBirth;
-        this.player.nationalTeam = response.nationalTeam;
+        this.player.name = response.player.name;
+        this.player.position = response.player.position;
+        this.player.club = response.player.club;
+        this.player.league = response.player.league;
+        this.player.dateOfBirth = response.player["date of birth"];
+        this.player.nationalTeam = response.player.nationalTeam;
       });
   }
 
@@ -54,8 +53,6 @@ export class UpdatePlayerComponent implements OnInit {
       },
       error => {
         var errorMessage = <any>error;
-        console.log("body: " + error._body);
-
         if (errorMessage != null) {
           var body = JSON.parse(error._body);
           this.alertMessage = body.message;
