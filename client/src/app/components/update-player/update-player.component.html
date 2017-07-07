@@ -46,6 +46,6 @@
       </span>
     </p>
 
-    <input type="submit" value="Actualizar datos" class="btn btn-primary" />
+    <input type="submit" value="Actualizar datos" class="btn btn-primary" [disabled]="!PlayerUpdateForm.valid" />
   </form>
 </div>
