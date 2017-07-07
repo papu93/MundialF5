@@ -40,6 +40,13 @@
           </span>
         </p>
 
+        <div class="form-group">
+          <label for="select1">Seleccion</label>
+          <select class="form-control" id="select1">
+            <option *ngFor="let nationalTeam of nationalTeamsService.nationalTeams;">{{nationalTeam.name}}</option>
+          </select>
+        </div>
+
         <p>
           <label>Fecha de nacimiento:</label>
           <input type="text" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { PlayersService } from '../../services/players.service';
 import { Player } from '../../classes/player.class';
+import { NationalTeamsService } from '../../services/national-teams.service';
 
 @Component({
   selector: 'app-update-player',
@@ -16,7 +17,8 @@ export class UpdatePlayerComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private playersService: PlayersService) {
+              private playersService: PlayersService,
+              private nationalTeamsService: NationalTeamsService) {
   }
 
 
@@ -24,6 +26,7 @@ export class UpdatePlayerComponent implements OnInit {
     this.titulo = 'Actualizar datos';
     console.log('Update-player cargado');
     this.getPlayer();
+    this.nationalTeamsService.getNationalTeams().subscribe();
   }
 
   getPlayer() {
@@ -46,7 +49,7 @@ export class UpdatePlayerComponent implements OnInit {
         if (!response.player) {
           this.alertMessage = 'El jugador no se ha actualizado';
         } else {
-          this.player = response.player; //actualizamos jugador
+          this.player = response.player; // actualizamos jugador
           this.alertMessage = 'Datos actualizados correctamente';
         }
 

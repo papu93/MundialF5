@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { PlayersService } from '../../services/players.service';
 import { Player } from '../../classes/player.class';
+import { NationalTeamsService } from '../../services/national-teams.service';
 
 @Component({
   selector: 'app-add-player',
@@ -15,11 +16,13 @@ export class AddPlayerComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private playersService: PlayersService) { }
+              private playersService: PlayersService,
+              private nationalTeamsService: NationalTeamsService) { }
 
   ngOnInit() {
     this.titulo = 'Registrar Jugador';
     console.log('Add-player cargado');
+    this.nationalTeamsService.getNationalTeams().subscribe();
   }
 
   onSubmit() {
