@@ -9,7 +9,7 @@
     <div class="row" *ngIf="players != null">
       <div class="card col-lg-4" *ngFor="let player of players">
         <div class="card-block player-card">
-          <span class="card-title">{{player.name}}</span>
+          <span class="card-title"><strong>{{player.name}}</strong></span>
           <div class="container detail-container">
             <p class="card-text">Posicion: {{player.position}}</p>
             <p class="card-text">Club: {{player.club}}</p>

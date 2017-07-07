@@ -1,35 +1,42 @@
 <div class="container">
 
-  <h1>Detalle</h1>
+  <div class="container-fluid">
+    <h1>Detalle</h1>
 
-  <div class="row" *ngIf="nationalTeam != null">
-    <div class="jumbotron col-lg-5 row-component margin">
-      <div class="inline-component">
-      <p>Nombre: {{nationalTeam.name}}</p>
-      <p>Confederacion: {{nationalTeam.confederation}}</p>
+    <div class="row" *ngIf="nationalTeam != null">
+      <div class="jumbotron col-lg-5 row-component margin">
+        <div class="inline-component">
+          <p class="common-title">Nombre: <strong>{{nationalTeam.name}}</strong></p>
+           <p class="common-title">Confederacion: {{nationalTeam.confederation}}</p>
+        </div>
       </div>
-    </div>
-    <div class="jumbotron col-lg-6 inline-component">
-      <div class="container img-container">
-        <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">
+      <div class="jumbotron col-lg-6 inline-component">
+        <p class="text-center common-title"><strong>Escudo</strong></p>
+        <div class="container img-container">
+          <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="jumbotron jumbotron-padding">
-    <div class="container-fluid container-cards">
-      <div class="row" *ngIf="players != null">
-        <div class="card col-lg-4" *ngFor="let player of players">
-          <div class="card-block player-card">
-            <span class="card-title">{{player.name}}</span>
-            <div class="container detail-container">
-              <p class="card-text">Posicion: {{player.position}}</p>
-              <p class="card-text">Club: {{player.club}}</p>
-              <p class="card-text">Liga: {{player.league}}</p>
-              <p class="card-text">Fecha de nacimiento: {{player["date of birth"]}}</p>
-            </div>
-            <div class="container container-detail">
-              <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
+  <div class="container-fluid">
+    <h2>Jugadores</h2>
+
+    <div class="jumbotron jumbotron-padding">
+      <div class="container-fluid container-cards">
+        <div class="row" *ngIf="players != null">
+          <div class="card col-lg-4" *ngFor="let player of players">
+            <div class="card-block player-card">
+              <span class="card-title"><strong>{{player.name}}</strong></span>
+              <div class="container detail-container">
+                <p class="card-text">Posicion: {{player.position}}</p>
+                <p class="card-text">Club: {{player.club}}</p>
+                <p class="card-text">Liga: {{player.league}}</p>
+                <p class="card-text">Fecha de nacimiento: {{player["date of birth"]}}</p>
+              </div>
+              <div class="container container-detail">
+                <button (click)="showPlayerDetail()" type="button" class="btn btn-outline-primary btn-block" >Ver Detalle</button>
+              </div>
             </div>
           </div>
         </div>
