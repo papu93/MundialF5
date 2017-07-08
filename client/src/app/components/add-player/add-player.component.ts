@@ -45,4 +45,8 @@ export class AddPlayerComponent implements OnInit {
         }
       });
   }
+
+  cancel(){
+    this.router.navigate(['/players']);
+  }
 }

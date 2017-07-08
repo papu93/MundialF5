@@ -64,4 +64,8 @@ export class UpdatePlayerComponent implements OnInit {
         }
       });
   }
+
+  cancel(){
+    this.router.navigate(['/players']);
+  }
 }
