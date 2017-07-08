@@ -39,12 +39,11 @@
             La liga es obligatoria
           </span>
         </p>
-        <div class="form-group">
-          <label for="select1">Seleccion</label>
-          <select class="form-control" id="select1">
-            <option *ngFor="let nationalTeam of nationalTeamsService.nationalTeams;">{{nationalTeam.name}}</option>
-          </select>
-        </div>
+
+        <label>Seleccion:</label>
+        <select class="form-control" name="nationalTeam" [(ngModel)]="player.nationalTeam">
+          <option *ngFor="let nationalTeam of nationalTeamsService.nationalTeams" [value]="nationalTeam._id">{{nationalTeam.name}}</option>
+        </select>
 
         <p>
         <label>Fecha de nacimiento:</label>
