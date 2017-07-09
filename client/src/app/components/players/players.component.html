@@ -17,10 +17,8 @@
             <p class="card-text">Fecha de nacimiento: {{player.dateOfBirth}}</p>
           </div>
           <div class="container container-detail">
-            <button (click)="updatePlayer(player._id)" type="button" class="btn btn-outline-primary btn-block" >Modificar</button>
-          </div>
-          <div class="container container-detail">
-            <button (click)="deletePlayer(player._id)" type="button" class="btn btn-outline-primary btn-block" >Eliminar</button>
+            <button (click)="updatePlayer(player._id)" type="button" class="btn btn-info btn-block" >Modificar</button>
+            <button (click)="deletePlayer(player._id)" type="button" class="btn btn-danger btn-block" >Eliminar</button>
           </div>
         </div>
       </div>
