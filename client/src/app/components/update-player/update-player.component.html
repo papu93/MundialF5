@@ -8,51 +8,51 @@
   <div class="jumbotron jumbotron-padding">
     <div class="container col-lg-6">
       <form #PlayerUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
-        <p>
-          <label>Nombre:</label>
+        <div>
+          <label class="common-title">Nombre:</label>
           <input type="text" #name="ngModel" name="name" [(ngModel)]="player.name" class="form-control" required />
-          <span *ngIf="!name.valid && name.touched">
-            El nombre es obligatorio
-          </span>
-        </p>
+          <div class="alert alert-danger" role="alert" *ngIf="!name.valid && name.touched">
+            El <strong>nombre</strong> es obligatorio
+          </div>
+        </div>
 
-        <p>
-          <label>Posicion:</label>
+        <div>
+          <label class="common-title">Posicion:</label>
           <input type="text"  #position="ngModel" name="position" [(ngModel)]="player.position" class="form-control" required />
-          <span *ngIf="!position.valid && position.touched">
-            La posicion es obligatoria
-          </span>
-        </p>
+          <div class="alert alert-danger" role="alert" *ngIf="!position.valid && position.touched">
+            La <strong>posicion</strong> es obligatoria
+          </div>
+        </div>
 
-        <p>
-          <label>Club:</label>
+        <div>
+          <label class="common-title">Club:</label>
           <input type="text" #club="ngModel" name="club" [(ngModel)]="player.club" class="form-control" required />
-          <span *ngIf="!club.valid && club.touched">
-            El club es obligatorio
-          </span>
-        </p>
+          <div class="alert alert-danger" role="alert" *ngIf="!club.valid && club.touched">
+            El <strong>club</strong> es obligatorio
+          </div>
+        </div>
 
-        <p>
-          <label>Liga:</label>
+        <div>
+          <label class="common-title">Liga:</label>
           <input type="text" #league="ngModel" name="league" [(ngModel)]="player.league" class="form-control" required />
-          <span *ngIf="!league.valid && league.touched">
-            La liga es obligatoria
-          </span>
-        </p>
+          <div class="alert alert-danger" role="alert" *ngIf="!league.valid && league.touched">
+            La <strong>liga</strong> es obligatoria
+          </div>
+        </div>
 
-        <label>Seleccion:</label>
+        <label class="common-title">Seleccion:</label>
         <select class="form-control" name="nationalTeam" [(ngModel)]="player.nationalTeam">
           <option *ngFor="let nationalTeam of nationalTeamsService.nationalTeams" [value]="nationalTeam._id">{{nationalTeam.name}}</option>
         </select>
+        <div>
 
-        <p>
-        <label>Fecha de nacimiento:</label>
+        <label class="label-form common-title">Fecha de nacimiento:</label>
         <input type="text" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />
-        <span *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
-            La fecha de nacimiento es obligatoria
-          </span>
-        </p>
-        <div class="container">
+        <div class="alert alert-danger" role="alert" *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
+          La <strong>fecha de nacimiento</strong> es obligatoria
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert" class="container">
           <input type="submit" value="Actualizar datos" class="btn btn-success " [disabled]="!PlayerUpdateForm.valid" />
           <button (click)="cancel()" type="button" class="btn btn-danger float-right btn-inline-size" >Cancel</button>
         </div>
