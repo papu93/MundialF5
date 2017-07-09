@@ -21,4 +21,8 @@ export class NationalTeamsComponent implements OnInit {
     this.router.navigate(['/nationalTeam', id]);
   }
 
+  addNationalTeam() {
+    this.router.navigate(['/saveNationalTeam']);
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { GLOBAL } from './global';
 
 import 'rxjs/add/operator/map';
@@ -24,10 +24,15 @@ export class NationalTeamsService {
     const query = `/getNationalTeam/`;
     const url = this.apiURL + query + id;
     return this.httpModule.get( url )
-      .map( res => {
-        return res.json().nationalTeam;
-      });
+      .map( res => res.json().nationalTeam);
   }
 
+  registerNationalTeam(nationalTeam_to_register){
+    nationalTeam_to_register._id = this.nationalTeams.length + 1;
+    let params = JSON.stringify(nationalTeam_to_register); //convertimos a string
+    let headers = new Headers({ 'Content-Type': 'application/json' });
 
+    return this.httpModule.post(this.apiURL + 'saveNationalTeam/', params, { headers: headers })
+      .map(res => res.json());
+  }
 }

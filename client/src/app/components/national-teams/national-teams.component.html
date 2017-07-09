@@ -1,7 +1,11 @@
+<div class="row">
+  <div class="col-lg-12 margin-col">
+    <span class="nationalTeams-title">Selecciones: </span>
+    <button (click)="addNationalTeam()" type="button" class="btn btn-success float-right btn-size" >Agregar</button>
+  </div>
+</div>
 <div class="container">
-
   <div class="card-columns row">
-
     <div class="card col-md-3 app-card" *ngFor="let nationalTeam of nationalTeamsService.nationalTeams;">
       <div class="container img-container">
         <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">

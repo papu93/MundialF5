@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
-import { NationalTeamsService } from './services/national-teams.service';
-import { PlayersService } from './services/players.service';
 
 // Routes
 import { APP_ROUTING } from './app.routes';
 
 // Services
+import { NationalTeamsService } from './services/national-teams.service';
+import { PlayersService } from './services/players.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -21,6 +20,7 @@ import { NationalTeamComponent } from './components/national-team/national-team.
 import { WithoutPhotoPipe } from './pipes/without-photo.pipe';
 import { UpdatePlayerComponent } from './components/update-player/update-player.component';
 import { AddPlayerComponent } from './components/add-player/add-player.component';
+import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { AddPlayerComponent } from './components/add-player/add-player.component
     NationalTeamComponent,
     UpdatePlayerComponent,
     WithoutPhotoPipe,
-    AddPlayerComponent
+    AddPlayerComponent,
+    AddNationalTeamComponent
   ],
   imports: [
     BrowserModule,

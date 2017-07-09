@@ -5,6 +5,8 @@ import { NationalTeamComponent } from './components/national-team/national-team.
 import { PlayersComponent } from './components/players/players.component';
 import { UpdatePlayerComponent } from './components/update-player/update-player.component';
 import { AddPlayerComponent } from './components/add-player/add-player.component';
+import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
+
 
 const APP_ROUTES: Routes = [
   { path: 'nationalTeams', component: NationalTeamsComponent},
@@ -12,6 +14,7 @@ const APP_ROUTES: Routes = [
   { path: 'players', component: PlayersComponent},
   { path: 'updatePlayer/:id', component: UpdatePlayerComponent },
   { path: 'savePlayer', component: AddPlayerComponent },
+  { path: 'saveNationalTeam', component: AddNationalTeamComponent},
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];
 

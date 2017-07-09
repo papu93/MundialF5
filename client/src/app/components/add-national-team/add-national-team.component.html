@@ -1,0 +1,33 @@
+<div class="col-lg-12">
+  <h1>{{titulo}}</h1>
+  <div *ngIf="alertMessage">
+    <div class="alert alert-info">
+      {{alertMessage}}
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-padding">
+    <div class="container col-lg-6">
+      <form #NationalTeamForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
+        <p>
+          <label>Nombre:</label>
+          <input type="text" #name="ngModel" name="name" [(ngModel)]="nationalTeam.name" class="form-control" required />
+          <span *ngIf="!name.valid && name.touched">
+            El nombre es obligatorio
+          </span>
+        </p>
+
+        <p>
+          <label>Confederacion:</label>
+          <input type="text"  #confederation="ngModel" name="confederation" [(ngModel)]="nationalTeam.confederation" class="form-control" required />
+          <span *ngIf="!confederation.valid && confederation.touched">
+            La confederacion es obligatoria
+          </span>
+        </p>
+        <div class="container">
+          <input type="submit" value="Confirmar datos" class="btn btn-success " [disabled]="!NationalTeamForm.valid" />
+          <button (click)="cancel()" type="button" class="btn btn-danger btn-inline-size float-right" >Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
