@@ -34,9 +34,6 @@ export class PlayersComponent implements OnInit {
             this.players = response.players;
             console.log(this.players);
           }
-
-          this.getPlayers(); //en vez de redireccionar, hay que actualizar la lista de jugadores
-
         },
         error => {
           var errorMessage = <any>error;
@@ -67,6 +64,7 @@ export class PlayersComponent implements OnInit {
             //this.players = response.players;
             console.log("jugador eliminado: "+response.player);
           }
+          this.getPlayers(); //en vez de redireccionar, hay que actualizar la lista de jugadores
         },
         error => {
           var errorMessage = <any>error;
