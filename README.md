@@ -27,6 +27,7 @@ Metodo | URL | Descripcion
 -------|-----|------------
 GET | /getNationalTeams/:confederation? | Devuelve las selecciones pertenecientes al parametro confederation, si el mismo no es pasado devuelve todas las selecciones.
 GET | /getNationalTeam/:id | Devuelve la seleccion especificada en el parametro id.
+PUT | /updateNationalTeam/:id | Modifica la seleccion con el id especificado.
 POST | /saveNationalTeam | Almacena una seleccion.
 DELETE | /deleteNationalTeam/:id | Borra la seleccion con el id especificado. 
 
