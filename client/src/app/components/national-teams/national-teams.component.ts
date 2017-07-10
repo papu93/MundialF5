@@ -22,7 +22,12 @@ export class NationalTeamsComponent implements OnInit {
   }
 
   addNationalTeam() {
+    this.nationalTeamsService.setAction("register");
     this.router.navigate(['/saveNationalTeam']);
   }
 
+  updateNationalTeam() {
+    this.nationalTeamsService.setAction("update");
+    this.router.navigate(['/updateNationalTeam']);
+  }
 }

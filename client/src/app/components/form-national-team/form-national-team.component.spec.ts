@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddNationalTeamComponent } from './add-national-team.component';
+import { FormNationalTeamComponent } from './form-national-team.component';
 
-describe('AddNationalTeamComponent', () => {
-  let component: AddNationalTeamComponent;
-  let fixture: ComponentFixture<AddNationalTeamComponent>;
+describe('FormNationalTeamComponent', () => {
+  let component: FormNationalTeamComponent;
+  let fixture: ComponentFixture<FormNationalTeamComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddNationalTeamComponent ]
+      declarations: [ FormNationalTeamComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddNationalTeamComponent);
+    fixture = TestBed.createComponent(FormNationalTeamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

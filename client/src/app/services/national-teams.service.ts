@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 export class NationalTeamsService {
   nationalTeams: any[]= [];
   apiURL: string;
+  action: string;
 
   constructor( private httpModule: Http ) {
     this.apiURL = GLOBAL.url;
@@ -34,5 +35,13 @@ export class NationalTeamsService {
 
     return this.httpModule.post(this.apiURL + 'saveNationalTeam/', params, { headers: headers })
       .map(res => res.json());
+  }
+
+  getAction(){
+    return this.action;
+  }
+
+  setAction(action: string){
+    this.action = action;
   }
 }

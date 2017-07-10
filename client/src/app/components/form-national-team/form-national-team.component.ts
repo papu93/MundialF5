@@ -1,26 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { NationalTeam } from '../../classes/national-team.class';
 import { NationalTeamsService } from '../../services/national-teams.service';
 
 @Component({
-  selector: 'app-add-national-team',
-  templateUrl: './add-national-team.component.html',
-  styleUrls: ['./add-national-team.component.css']
+  selector: 'app-form-national-team',
+  templateUrl: './form-national-team.component.html',
+  styleUrls: ['./form-national-team.component.css']
 })
-export class AddNationalTeamComponent implements OnInit {
+export class FormNationalTeamComponent implements OnInit {
   public titulo: string;
   public nationalTeam: NationalTeam = new NationalTeam;
   public alertMessage;
+  public action: String;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private nationalTeamsService: NationalTeamsService){ }
 
   ngOnInit() {
-    this.titulo = 'Registrar Seleccion';
-    console.log('Add-national-team cargado');
-    this.nationalTeamsService.getNationalTeams().subscribe();
+    this.action = this.nationalTeamsService.getAction();
+    if(this.action == "update"){
+      this.titulo = 'Actualizar datos';
+    }else{
+      this.titulo = 'Registrar Seleccion';
+    }
+    console.log('Form-National-Team cargado');
   }
 
   onSubmit() {

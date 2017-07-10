@@ -4,16 +4,17 @@ import { NationalTeamsComponent } from './components/national-teams/national-tea
 import { NationalTeamComponent } from './components/national-team/national-team.component';
 import { PlayersComponent } from './components/players/players.component';
 import { FormPlayerComponent } from './components/form-player/form-player.component';
-import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
-
+//import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
+import { FormNationalTeamComponent } from './components/form-national-team/form-national-team.component';
 
 const APP_ROUTES: Routes = [
-  { path: 'nationalTeams', component: NationalTeamsComponent},
-  { path: 'nationalTeam/:id', component: NationalTeamComponent},
-  { path: 'players', component: PlayersComponent},
+  { path: 'nationalTeams', component: NationalTeamsComponent },
+  { path: 'nationalTeam/:id', component: NationalTeamComponent },
+  { path: 'players', component: PlayersComponent },
   { path: 'updatePlayer/:id', component: FormPlayerComponent },
   { path: 'savePlayer', component: FormPlayerComponent },
-  { path: 'saveNationalTeam', component: AddNationalTeamComponent},
+  { path: 'updateNationalTeam/:id', component: FormNationalTeamComponent },
+  { path: 'saveNationalTeam', component: FormNationalTeamComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];
 
