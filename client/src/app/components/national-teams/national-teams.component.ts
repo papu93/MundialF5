@@ -21,7 +21,7 @@ export class NationalTeamsComponent implements OnInit {
 
   getNationalTeams(){
     this.activatedRoute.params
-      .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(null))
+      .switchMap((params: Params) => this.nationalTeamsService.getNationalTeams())
       .subscribe(
         response => {
           console.log(response.nationalTeams);

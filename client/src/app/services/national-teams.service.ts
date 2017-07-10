@@ -15,23 +15,18 @@ export class NationalTeamsService {
   }
 
   getNationalTeams() {
-    const query = `/getNationalTeams/`;
-    const url = this.apiURL + query;
-    return this.httpModule.get( url )
-      .map( res => this.nationalTeams = res.json().nationalTeams );
-  }
-
-  getNationalTeam(nationalTeamId: number) {
-    let query;
-    if (nationalTeamId == null) {
-      query = `getNationalTeams/`;
-    } else {
-      query = `getNationalTeam/` + nationalTeamId;
-    }
+    const query = `getNationalTeams/`;
     const url = this.apiURL + query;
     console.log(url);
     return this.httpModule.get( url )
       .map( res => this.nationalTeams = res.json());
+  }
+
+  getNationalTeam(nationalTeamId: number) {
+    let query = `getNationalTeam/` + nationalTeamId;
+    const url = this.apiURL + query;
+    return this.httpModule.get( url )
+      .map( res => res.json());
   }
 
   updateNationalTeam(NationalTeam_to_update) {
@@ -43,6 +38,8 @@ export class NationalTeamsService {
 
   registerNationalTeam(nationalTeam_to_register){
     nationalTeam_to_register._id = this.nationalTeams.length + 1;
+    console.log("CANTIDAD " +nationalTeam_to_register._id);
+    console.log(nationalTeam_to_register);
     let params = JSON.stringify(nationalTeam_to_register); //convertimos a string
     let headers = new Headers({ 'Content-Type': 'application/json' });
 

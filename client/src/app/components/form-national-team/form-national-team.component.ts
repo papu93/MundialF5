@@ -34,10 +34,9 @@ export class FormNationalTeamComponent implements OnInit {
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(params["id"]))
       .subscribe(response => {
-        console.log("respose: "+response._id);
-        this.nationalTeam._id = response._id;
-        this.nationalTeam.name = response.name;
-        this.nationalTeam.confederation = response.confederation;
+        this.nationalTeam._id = response.nationalTeam._id;
+        this.nationalTeam.name = response.nationalTeam.name;
+        this.nationalTeam.confederation = response.nationalTeam.confederation;
         console.log("NT: "+this.nationalTeam);
       });
   }
