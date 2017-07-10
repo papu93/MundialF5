@@ -12,9 +12,9 @@
       </div>
       <div class="card-block">
         <h1 class="card-title text-center"><strong>{{nationalTeam.name}}</strong></h1>
-        <div class="container container-detail">
-          <button (click)="updateNationalTeam(nationalTeam._id)" type="button" class="btn btn-info" >Modificar</button>
-          <button (click)="deleteNationalTeam(nationalTeam._id)" type="button" class="btn btn-danger float-right btn-inline-size" >Eliminar</button>
+        <div class="container container-detail national-team-button-container">
+          <button (click)="updateNationalTeam(nationalTeam._id)" type="button" class="btn btn-info national-team-button" >Modificar</button>
+          <button (click)="deleteNationalTeam(nationalTeam._id)" type="button" class="btn btn-danger float-right national-team-button" >Eliminar</button>
         </div>
         <button (click)="showNationalTeam(nationalTeam._id)" type="button" class="btn btn-outline-primary btn-block" >Ver Seleccion</button>     </div>
     </div>

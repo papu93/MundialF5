@@ -82,3 +82,11 @@ body{
   margin-top: 8px;
 }
 
+.national-team-button{
+  width: 85px;
+  padding: 8px 8px 8px 8px !important;
+}
+
+.national-team-button-container {
+  margin-bottom: 10px;
+}
