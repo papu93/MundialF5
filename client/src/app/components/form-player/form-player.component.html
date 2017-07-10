@@ -7,7 +7,7 @@
   </div>
   <div class="jumbotron jumbotron-padding">
     <div class="container col-lg-6">
-      <form #PlayerUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
+      <form #PlayerForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10">
         <div>
           <label class="common-title">Nombre:</label>
           <input type="text" #name="ngModel" name="name" [(ngModel)]="player.name" class="form-control" required />
@@ -46,14 +46,14 @@
         </select>
         <div>
 
-        <label class="label-form common-title">Fecha de nacimiento:</label>
-        <input type="text" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />
-        <div class="alert alert-danger" role="alert" *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
-          La <strong>fecha de nacimiento</strong> es obligatoria
+          <label class="label-form common-title">Fecha de nacimiento:</label>
+          <input type="text" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="player.dateOfBirth" class="form-control" required />
+          <div class="alert alert-danger" role="alert" *ngIf="!dateOfBirth.valid && dateOfBirth.touched">
+            La <strong>fecha de nacimiento</strong> es obligatoria
           </div>
         </div>
         <div class="alert alert-danger" role="alert" class="container">
-          <input type="submit" value="Actualizar datos" class="btn btn-success " [disabled]="!PlayerUpdateForm.valid" />
+          <input type="submit" value="Confirmar datos" class="btn btn-success " [disabled]="!PlayerForm.valid" />
           <button (click)="cancel()" type="button" class="btn btn-danger float-right btn-inline-size" >Cancel</button>
         </div>
       </form>

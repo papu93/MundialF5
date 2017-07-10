@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 export class PlayersService {
   players: any[]= [];
   apiURL: string;
+  action: string;
 
   constructor( private httpModule: Http ) {
     this.apiURL = GLOBAL.url;
@@ -53,5 +54,13 @@ export class PlayersService {
 
     return this.httpModule.delete(this.apiURL + 'deletePlayer/'+id, { headers: headers })
       .map(res => res.json());
+  }
+
+  getAction(){
+    return this.action;
+  }
+
+  setAction(action: string){
+    this.action = action;
   }
 }

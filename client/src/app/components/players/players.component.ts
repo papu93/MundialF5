@@ -44,10 +44,12 @@ export class PlayersComponent implements OnInit {
   }
 
   updatePlayer(id: number) {
+    this.playersService.setAction("update");
     this.router.navigate(['/updatePlayer', id]);
   }
 
   addPlayer() {
+    this.playersService.setAction("register");
     this.router.navigate(['/savePlayer']);
   }
 
