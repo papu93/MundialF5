@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 
 function saveNationalTeam(req,res){
     let maxId;
-    let find = NationalTeam.find({}).sort({_id:-1});
+    let find = NationalTeam.find({}).sort({_id:-1}).limit(1);
     find.exec(function(err,nationalTeams) {
         if (err) {
             console.log("Error al buscar el mayor ID");
@@ -12,7 +12,7 @@ function saveNationalTeam(req,res){
                 console.log("No hay selecciones ID=1");
                 maxId = 1;
             } else {
-                console.log(nationalTeams[0]);
+                console.log("hola" +nationalTeams);
                 maxId = nationalTeams[0]._id;
 
                 let nationalTeam = new NationalTeam();
