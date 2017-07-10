@@ -2,25 +2,41 @@ let NationalTeam = require('../models/nationalTeam');
 let mongoose = require('mongoose');
 
 function saveNationalTeam(req,res){
-  let nationalTeam = new NationalTeam();
+    let maxId;
+    let find = NationalTeam.find({}).sort({_id:-1});
+    find.exec(function(err,nationalTeams) {
+        if (err) {
+            console.log("Error al buscar el mayor ID");
+        } else {
+            if (!nationalTeams) {
+                console.log("No hay selecciones ID=1");
+                maxId = 1;
+            } else {
+                console.log(nationalTeams[0]);
+                maxId = nationalTeams[0]._id;
 
-  let params = req.body;
-  nationalTeam._id = params._id;
-  nationalTeam.name = params.name.toLowerCase();
-  nationalTeam.confederation = params.confederation.toLowerCase();
-  nationalTeam.image = params.image;
+                let nationalTeam = new NationalTeam();
 
-  nationalTeam.save(function(err,nationalTeam){
-    if(err){
-      res.status(500).send({message: 'No se ha guardado el national team'+'\n'+err});
-    }else{
-      if(!nationalTeam){
-        res.status(404).send({message: 'No se ha guardado el national team'});
-      }else{
-        res.status(200).send({nationalTeam: nationalTeam});
-      }
-    }
-  });
+                let params = req.body;
+                nationalTeam._id = maxId+1;
+                nationalTeam.name = params.name.toLowerCase();
+                nationalTeam.confederation = params.confederation.toLowerCase();
+                nationalTeam.image = params.image;
+
+                nationalTeam.save(function(err,nationalTeam){
+                    if(err){
+                        res.status(500).send({message: 'No se ha guardado el national team'+'\n'+err});
+                    }else{
+                        if(!nationalTeam){
+                            res.status(404).send({message: 'No se ha guardado el national team'});
+                        }else{
+                            res.status(200).send({nationalTeam: nationalTeam});
+                        }
+                    }
+                });
+            }
+        }
+    });
 }
 
 function getNationalTeams(req,res) {

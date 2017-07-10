@@ -37,9 +37,6 @@ export class NationalTeamsService {
   }
 
   registerNationalTeam(nationalTeam_to_register){
-    nationalTeam_to_register._id = this.nationalTeams.length + 1;
-    console.log("CANTIDAD " +nationalTeam_to_register._id);
-    console.log(nationalTeam_to_register);
     let params = JSON.stringify(nationalTeam_to_register); //convertimos a string
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
