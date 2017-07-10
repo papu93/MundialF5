@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 import { NationalTeamsService } from '../../services/national-teams.service';
-import { Router } from '@angular/router';
+import { NationalTeam} from '../../classes/national-team.class';
 
 @Component({
   selector: 'app-national-teams',
@@ -9,12 +10,34 @@ import { Router } from '@angular/router';
 })
 export class NationalTeamsComponent implements OnInit {
 
-  constructor( private nationalTeamsService: NationalTeamsService,
-               private router: Router) { }
+  nationalTeams: NationalTeam[] = [];
+  constructor( private activatedRoute: ActivatedRoute,
+               private router: Router,
+               private nationalTeamsService: NationalTeamsService) {  }
 
   ngOnInit() {
-    this.nationalTeamsService.getNationalTeams().subscribe();
-    // console.log(this.nationalTeamsService.nationalTeams);
+    this.getNationalTeams();
+  }
+
+  getNationalTeams(){
+    this.activatedRoute.params
+      .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(null))
+      .subscribe(
+        response => {
+          console.log(response.nationalTeams);
+          if(!response){
+            console.log("No hay selecciones para cargar");
+          }else{
+            this.nationalTeams = response.nationalTeams;
+            console.log(this.nationalTeams);
+          }
+        },
+        error => {
+          var errorMessage = <any>error;
+          if(errorMessage != null){
+            console.log(JSON.parse(error._body));
+          }
+        });
   }
 
   showNationalTeam(id: number) {
@@ -26,8 +49,28 @@ export class NationalTeamsComponent implements OnInit {
     this.router.navigate(['/saveNationalTeam']);
   }
 
-  updateNationalTeam() {
+  updateNationalTeam(id: number) {
     this.nationalTeamsService.setAction("update");
-    this.router.navigate(['/updateNationalTeam']);
+    this.router.navigate(['/updateNationalTeam',id]);
+  }
+
+  deleteNationalTeam(id: number) {
+    this.activatedRoute.params
+      .switchMap((params: Params) => this.nationalTeamsService.deleteNationalTeam(id))
+      .subscribe(
+        response => {
+          if(!response){
+            console.log("No se pudo eliminar la seleccon");
+          }else{
+            console.log("Seleccion eliminada: "+response);
+          }
+          this.getNationalTeams(); //en vez de redireccionar, hay que actualizar la lista de selecciones
+        },
+        error => {
+          var errorMessage = <any>error;
+          if(errorMessage != null){
+            console.log(JSON.parse(error._body));
+          }
+        });
   }
 }

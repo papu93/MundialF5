@@ -18,7 +18,6 @@ import { NationalTeamsComponent } from './components/national-teams/national-tea
 import { PlayersComponent } from './components/players/players.component';
 import { NationalTeamComponent } from './components/national-team/national-team.component';
 import { WithoutPhotoPipe } from './pipes/without-photo.pipe';
-//import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
 import { FormPlayerComponent } from './components/form-player/form-player.component';
 import { FormNationalTeamComponent } from './components/form-national-team/form-national-team.component';
 
@@ -31,7 +30,6 @@ import { FormNationalTeamComponent } from './components/form-national-team/form-
     PlayersComponent,
     NationalTeamComponent,
     WithoutPhotoPipe,
-  //  AddNationalTeamComponent,
     FormPlayerComponent,
     FormNationalTeamComponent
   ],

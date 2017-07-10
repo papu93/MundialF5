@@ -21,11 +21,24 @@ export class NationalTeamsService {
       .map( res => this.nationalTeams = res.json().nationalTeams );
   }
 
-  getNationalTeam(id: number) {
-    const query = `/getNationalTeam/`;
-    const url = this.apiURL + query + id;
+  getNationalTeam(nationalTeamId: number) {
+    let query;
+    if (nationalTeamId == null) {
+      query = `getNationalTeams/`;
+    } else {
+      query = `getNationalTeam/` + nationalTeamId;
+    }
+    const url = this.apiURL + query;
+    console.log(url);
     return this.httpModule.get( url )
-      .map( res => res.json().nationalTeam);
+      .map( res => this.nationalTeams = res.json());
+  }
+
+  updateNationalTeam(NationalTeam_to_update) {
+    let params = JSON.stringify(NationalTeam_to_update); //convertimos a string
+    let headers = new Headers({'Content-Type': 'application/json'});
+    return this.httpModule.put(this.apiURL + 'updateNationalTeam/' + NationalTeam_to_update._id, params, {headers: headers})
+      .map(res => res.json());
   }
 
   registerNationalTeam(nationalTeam_to_register){
@@ -34,6 +47,13 @@ export class NationalTeamsService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.httpModule.post(this.apiURL + 'saveNationalTeam/', params, { headers: headers })
+      .map(res => res.json());
+  }
+
+  deleteNationalTeam(id: number){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.httpModule.delete(this.apiURL + 'deleteNationalTeam/'+id, { headers: headers })
       .map(res => res.json());
   }
 

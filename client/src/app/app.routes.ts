@@ -4,7 +4,6 @@ import { NationalTeamsComponent } from './components/national-teams/national-tea
 import { NationalTeamComponent } from './components/national-team/national-team.component';
 import { PlayersComponent } from './components/players/players.component';
 import { FormPlayerComponent } from './components/form-player/form-player.component';
-//import { AddNationalTeamComponent } from './components/add-national-team/add-national-team.component';
 import { FormNationalTeamComponent } from './components/form-national-team/form-national-team.component';
 
 const APP_ROUTES: Routes = [
@@ -15,6 +14,7 @@ const APP_ROUTES: Routes = [
   { path: 'savePlayer', component: FormPlayerComponent },
   { path: 'updateNationalTeam/:id', component: FormNationalTeamComponent },
   { path: 'saveNationalTeam', component: FormNationalTeamComponent },
+  { path: 'deleteNationalTeam/:id', component: FormNationalTeamComponent },
   { path: '**', pathMatch: 'full', component: HomeComponent }
 ];
 

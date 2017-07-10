@@ -6,13 +6,16 @@
 </div>
 <div class="container">
   <div class="card-columns row">
-    <div class="card col-md-3 app-card" *ngFor="let nationalTeam of nationalTeamsService.nationalTeams;">
+    <div class="card col-md-3 app-card" *ngFor="let nationalTeam of nationalTeams">
       <div class="container img-container">
         <img [src]="nationalTeam.image | withoutPhoto" width="150" height="150" alt="Escudo">
       </div>
       <div class="card-block">
         <h1 class="card-title text-center"><strong>{{nationalTeam.name}}</strong></h1>
-        <button (click)="updateNationalTeam(nationalTeam._id)" type="button" class="btn btn-info" >Modificar</button>
+        <div class="container container-detail">
+          <button (click)="updateNationalTeam(nationalTeam._id)" type="button" class="btn btn-info" >Modificar</button>
+          <button (click)="deleteNationalTeam(nationalTeam._id)" type="button" class="btn btn-danger float-right btn-inline-size" >Eliminar</button>
+        </div>
         <button (click)="showNationalTeam(nationalTeam._id)" type="button" class="btn btn-outline-primary btn-block" >Ver Seleccion</button>     </div>
     </div>
 
