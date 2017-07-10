@@ -33,10 +33,10 @@ export class NationalTeamComponent implements OnInit {
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(+params['id']))
       .subscribe(response => {
-        this.nationalTeam._id = response._id;
-        this.nationalTeam.name = response.name;
-        this.nationalTeam.confederation = response.confederation;
-        this.nationalTeam.image = response.image;
+        this.nationalTeam._id = response.nationalTeam._id;
+        this.nationalTeam.name = response.nationalTeam.name;
+        this.nationalTeam.confederation = response.nationalTeam.confederation;
+        this.nationalTeam.image = response.nationalTeam.image;
       });
   }
 
@@ -58,21 +58,5 @@ export class NationalTeamComponent implements OnInit {
             console.log(JSON.parse(error._body));
           }
         });
-  }
-
-  storePlayers(res: any[]) {
-    for (const player of res) {
-      this.p.name = player.name;
-      this.p.position = player.position;
-      this.p.club = player.club;
-      this.p.league = player.league;
-      this.p.dateOfBirth = player.dateOfBirth;
-      this.p.nationalTeam = player.nationalTeam;
-      this.players.push(this.p);
-    }
-  }
-
-  showPlayerDetail() {
-
   }
 }

@@ -22,14 +22,49 @@ export class FormNationalTeamComponent implements OnInit {
     this.action = this.nationalTeamsService.getAction();
     if(this.action == "update"){
       this.titulo = 'Actualizar datos';
+      this.getNationalTeam();
     }else{
       this.titulo = 'Registrar Seleccion';
     }
     console.log('Form-National-Team cargado');
+
+  }
+
+  getNationalTeam() {
+    this.activatedRoute.params
+      .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(params["id"]))
+      .subscribe(response => {
+        console.log("respose: "+response._id);
+        this.nationalTeam._id = response._id;
+        this.nationalTeam.name = response.name;
+        this.nationalTeam.confederation = response.confederation;
+        console.log("NT: "+this.nationalTeam);
+      });
   }
 
   onSubmit() {
-    this.nationalTeamsService.registerNationalTeam(this.nationalTeam).subscribe(
+    if(this.action == "update") { //Update NationalTeam
+      this.nationalTeamsService.updateNationalTeam(this.nationalTeam).subscribe(
+        response => {
+          if (!response.nationalTeam) {
+            this.alertMessage = 'La seleccion no se ha actualizado';
+          } else {
+            this.nationalTeam = response.nationalTeam; // actualizamos NT
+            this.alertMessage = 'Datos actualizados correctamente';
+          }
+
+          this.router.navigate(['/nationalTeams']);
+        },
+        error => {
+          var errorMessage = <any>error;
+          if (errorMessage != null) {
+            var body = JSON.parse(error._body);
+            this.alertMessage = body.message;
+            console.log(error);
+          }
+        });
+    }else{ //Registrar National Team
+      this.nationalTeamsService.registerNationalTeam(this.nationalTeam).subscribe(
       response => {
         if (!response.nationalTeam) {
           this.alertMessage = 'La seleccion no se ha podido registrar';
@@ -47,6 +82,7 @@ export class FormNationalTeamComponent implements OnInit {
           console.log(error);
         }
       });
+    }
   }
 
   cancel(){

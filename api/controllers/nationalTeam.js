@@ -60,6 +60,23 @@ function getNationalTeam(req , res) {
   });
 }
 
+function updateNationalTeam(req,res) {
+    let nationalTeamId = req.params.id;
+    let update = req.body;
+
+    NationalTeam.findByIdAndUpdate(nationalTeamId, update, {new: true}, function (err, result) {
+        if (err) {
+            res.status(500).send({message: 'No se ha podido actualizar la seleccion' + '\n' + err});
+        } else {
+            if (!result) {
+                res.status(404).send({message: 'No se ha actualizado la seleccion'});
+            } else {
+                res.status(200).send({nationalTeam: result});
+            }
+        }
+    })
+}
+
 function deleteNationalTeam(req , res) {
   let nationalTeamId = req.params.id;
 
@@ -79,6 +96,7 @@ function deleteNationalTeam(req , res) {
 module.exports = {
   getNationalTeams,
   saveNationalTeam,
+  updateNationalTeam,
   deleteNationalTeam,
   getNationalTeam
 }
