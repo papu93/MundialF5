@@ -37,7 +37,7 @@ export class FormNationalTeamComponent implements OnInit {
         this.nationalTeam._id = response.nationalTeam._id;
         this.nationalTeam.name = response.nationalTeam.name;
         this.nationalTeam.confederation = response.nationalTeam.confederation;
-        console.log("NT: "+this.nationalTeam);
+        this.nationalTeam.image = response.nationalTeam.image;
       });
   }
 

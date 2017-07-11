@@ -23,6 +23,13 @@
             La <strong>confederacion</strong> es obligatoria.
           </div>
         </div>
+        <div>
+          <label class="label-form common-title">Imagen:</label>
+          <input type="text"  #image="ngModel" name="image" [(ngModel)]="nationalTeam.image" class="form-control" placeholder="Ingrese el link del escudo" />
+          <div>
+            Abra la imagen del escudo en una nueva pestaña y copie ese link aqui.
+          </div>
+          </div>
         <div class="container container-detail">
           <input type="submit" value="Confirmar datos" class="btn btn-success " [disabled]="!NationalTeamForm.valid" />
           <button (click)="cancel()" type="button" class="btn btn-danger btn-inline-size float-right" >Cancel</button>
