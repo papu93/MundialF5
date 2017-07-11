@@ -33,7 +33,6 @@ export class NationalTeamComponent implements OnInit {
     this.activatedRoute.params
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeam(+params['id']))
       .subscribe(response => {
-        console.log("holaaaaaaa "+response);
         this.nationalTeam._id = response.nationalTeam._id;
         this.nationalTeam.name = response.nationalTeam.name;
         this.nationalTeam.confederation = response.nationalTeam.confederation;
@@ -50,7 +49,6 @@ export class NationalTeamComponent implements OnInit {
             console.log('No hay jugadores para cargar');
           } else {
             this.players = response.players;
-            console.log(this.players);
           }
         },
         error => {

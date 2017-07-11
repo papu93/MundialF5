@@ -60,7 +60,7 @@ export class NationalTeamsComponent implements OnInit {
           if(!response){
             console.log("No se pudo eliminar la seleccon");
           }else{
-            console.log("Seleccion eliminada: "+response);
+            console.log("Seleccion eliminada");
           }
           this.getNationalTeams(); //en vez de redireccionar, hay que actualizar la lista de selecciones
         },

@@ -30,7 +30,6 @@ export class FormPlayerComponent implements OnInit {
       this.titulo = 'Registrar Jugador';
     }
     this.nationalTeamsService.getNationalTeams().subscribe();
-    console.log('Update-player cargado');
   }
 
   getPlayer() {

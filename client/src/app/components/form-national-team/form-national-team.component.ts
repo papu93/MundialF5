@@ -26,7 +26,6 @@ export class FormNationalTeamComponent implements OnInit {
     }else{
       this.titulo = 'Registrar Seleccion';
     }
-    console.log('Form-National-Team cargado');
 
   }
 

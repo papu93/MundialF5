@@ -32,7 +32,6 @@ export class PlayersComponent implements OnInit {
             console.log("No hay jugadores para cargar");
           }else{
             this.players = response.players;
-            console.log(this.players);
           }
         },
         error => {
@@ -54,8 +53,6 @@ export class PlayersComponent implements OnInit {
   }
 
   deletePlayer(id: number) {
-    console.log("ELIMINAR JUGADOR");
-
     this.activatedRoute.params
       .switchMap((params: Params) => this.playersService.deletePlayer(id))
       .subscribe(
@@ -63,8 +60,7 @@ export class PlayersComponent implements OnInit {
           if(!response.player){
             console.log("No se pudo eliminar el jugador");
           }else{
-            //this.players = response.players;
-            console.log("jugador eliminado: "+response.player);
+            console.log("Jugador eliminado");
           }
           this.getPlayers(); //en vez de redireccionar, hay que actualizar la lista de jugadores
         },
