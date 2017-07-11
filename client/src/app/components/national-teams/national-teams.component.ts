@@ -24,12 +24,10 @@ export class NationalTeamsComponent implements OnInit {
       .switchMap((params: Params) => this.nationalTeamsService.getNationalTeams())
       .subscribe(
         response => {
-          console.log(response.nationalTeams);
           if(!response){
             console.log("No hay selecciones para cargar");
           }else{
-            this.nationalTeams = response.nationalTeams;
-            console.log(this.nationalTeams);
+            this.nationalTeams = response;
           }
         },
         error => {

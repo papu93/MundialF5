@@ -19,7 +19,7 @@ export class NationalTeamsService {
     const url = this.apiURL + query;
     console.log(url);
     return this.httpModule.get( url )
-      .map( res => this.nationalTeams = res.json());
+      .map( res => this.nationalTeams = res.json().nationalTeams);
   }
 
   getNationalTeam(nationalTeamId: number) {
